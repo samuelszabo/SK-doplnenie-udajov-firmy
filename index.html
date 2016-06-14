@@ -10,7 +10,7 @@
 
   $('#najstFirmu').click(function(event){
      event.preventDefault();
-      $.getJSON( "registeruzproxy.php?ico="+$('#ico').val(), function( data ) {
+      $.getJSON( "apiproxy.php?ico="+$('#ico').val(), function( data ) {
         if(data.error) {
           alert('Chyba - '+data.error);
         }
