@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+  <title></title>
+  <script   src="https://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  $(function() {
+
+  $('#najstFirmu').click(function(event){
+     event.preventDefault();
+      $.getJSON( "registeruzproxy.php?ico="+$('#ico').val(), function( data ) {
+        if(data.error) {
+          alert('Chyba - '+data.error);
+        }
+        $('#ico').val(data.ico);
+        $('#dic').val(data.dic);
+        $('#icdph').val(data.icdph);
+        $('#nazov').val(data.nazovUJ);
+        $('#ulica').val(data.ulica);
+        $('#mesto').val(data.mesto);
+        $('#psc').val(data.psc);
+      });
+  });
+  
+  $('form').submit(function(event){
+    event.preventDefault();
+    alert('odoslanie formularu');  
+  });
+
+});
+
+
+  </script>
+  </head>
+  <body>
+  <form action="#">
+
+  IČO:
+  <input type="text" name="ico" id="ico" value="35 815 256"> <a href="#" id="najstFirmu">doplniť ostatné</a>
+  <br />
+ DIČ: <input type="text" name="dic" id="dic">
+  <br />
+  IČ DPH:<input type="text" name="icdph" id="icdph">
+  <br />
+  Názov: <input type="text" name="nazov" id="nazov">
+  <br />
+  Ulica: <input type="text" name="ulica" id="ulica">
+  <br />
+  PSČ: <input type="text" name="psc" id="psc">
+  <br />
+  Mesto: <input type="text" name="mesto" id="mesto">
+  <br />
+  <input type="submit">
+</form>
+
+  </body>
+</html>
