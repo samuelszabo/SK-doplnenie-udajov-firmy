@@ -3,11 +3,13 @@ class orsr {
   var $searchtext;
   var $searchfield = 'ICO';
   
+  var $orsrDomain = 'http://www.orsr.sk';
+  
   private function getDetailURL($id) {
-     return 'http://orsr.sk/vypis.asp?ID='.$id; 
+     return $this->orsrDomain . '/vypis.asp?ID='.$id; 
   }
   private function getSearchUrl() {
-    return 'http://orsr.sk/hladaj_ico.asp?'.$this->searchfield.'='.$this->searchtext.'&SID=0';
+    return $this->orsrDomain . '/hladaj_ico.asp?'.$this->searchfield.'='.$this->searchtext.'&SID=0';
   }
   
   public function getResponse($url) {
